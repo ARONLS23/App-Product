@@ -1,36 +1,58 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Tue Jun 03 2025 15:21:04 GMT+0000 (Coordinated Universal Time)|
-|**App Generator**<br>SAP Fiori Application Generator|
-|**App Generator Version**<br>1.17.6|
-|**Generation Platform**<br>SAP Business Application Studio|
-|**Template Used**<br>Basic|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A|
-|**Module Name**<br>product|
-|**Application Title**<br>App Product|
-|**Namespace**<br>|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.136.1|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
-|**Add Eslint configuration**<br>False|
+# Inventario de Productos
 
-## product
+Aplicación Fiori desarrollada en SAPUI5 para la gestión de productos, usuarios y compras.
 
+## Características
 
+- Visualización y mantenimiento de productos, usuarios y compras.
+- Exportación de datos a Excel.
+- Búsqueda y filtrado en tablas.
+- Navegación entre vistas de detalle.
+- Visualización de ubicación de usuarios en mapa.
 
-### Starting the generated app
+## Instalación
 
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply run the following from the generated app root folder:
+1. Clona el repositorio.
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
 
-```
-    npm start
+## Ejecución local
+
+Para iniciar la aplicación localmente:
+
+```sh
+npm start
 ```
 
-#### Pre-requisites:
+Esto abrirá la aplicación en tu navegador usando el entorno de desarrollo Fiori Tools.
 
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
+### Otros comandos útiles
 
+- **Build para despliegue local:**  
+  ```sh
+  npm run build
+  ```
+- **Pruebas unitarias:**  
+  ```sh
+  npm run unit-test
+  ```
+- **Pruebas de integración:**  
+  ```sh
+  npm run int-test
+  ```
 
+## Requisitos
+
+- Node.js LTS
+- UI5 CLI (`@ui5/cli`)
+- Acceso a internet para consumir la API pública [Fake Store API](https://fakestoreapi.com/)
+
+## Autor
+
+Desarrollado por Aron Lloclla
+
+---
+
+> Generado con SAP Fiori Tools y SAPUI5 1.136.1
