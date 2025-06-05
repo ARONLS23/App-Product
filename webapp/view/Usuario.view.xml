@@ -1,0 +1,89 @@
+<mvc:View
+    controllerName="product.controller.Usuario"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    height="100%"
+>
+    <m:Page
+        title="Vista Usuarios"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <m:headerContent>
+            <m:Button
+                icon="sap-icon://download"
+                text="Exportar"
+                press="onDataExport"
+                type="Emphasized"
+            />
+        </m:headerContent>
+
+        <m:SearchField
+            id="searchFieldUser"
+            placeholder="Buscar usuario por nombre"
+            liveChange="onSearch"
+            width="50%"
+            class="sapUiSmallMargin"
+        />
+
+        <m:Table
+            id="userTable"
+            items="{usersModel>/users}"
+            growing="true"
+            growingThreshold="5"
+            busyIndicatorDelay="0"
+            class="sapUiResponsiveMargin"
+        >
+            <m:headerToolbar>
+                <m:Toolbar>
+                    <m:Title text="Lista de Usuarios" />
+                    <m:ToolbarSpacer />
+                </m:Toolbar>
+            </m:headerToolbar>
+
+            <m:columns>
+                <m:Column width="15%">
+                    <m:Text text="Username" />
+                </m:Column>
+                <m:Column width="20%">
+                    <m:Text text="Email" />
+                </m:Column>
+                <m:Column width="25%">
+                    <m:Text text="Teléfono" />
+                </m:Column>
+                <m:Column width="20%">
+                    <m:Text text="Ciudad" />
+                </m:Column>
+                <m:Column width="20%">
+                    <m:Text text="Dirección" />
+                </m:Column>
+                <m:Column width="15%">
+                    <m:Text text="Detalle" />
+                </m:Column>
+            </m:columns>
+
+            <m:items>
+                <m:ColumnListItem>
+                    <m:cells>
+                        <m:Text text="{usersModel>username}" />
+                        <m:Text text="{usersModel>email}" />
+                        <m:Text text="{usersModel>phone}" />
+                        <m:Text text="{usersModel>address/city}" />
+                        <m:Text text="{usersModel>address/street}" />
+                        <m:Button
+                            icon="sap-icon://navigation-right-arrow"
+                            tooltip="Ver Detalles"
+                            press="onPressDetail"
+                            type="Transparent"
+                        />
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+
+            <m:noData>
+                <m:Text text="No hay usuarios disponibles." />
+            </m:noData>
+        </m:Table>
+    </m:Page>
+</mvc:View>

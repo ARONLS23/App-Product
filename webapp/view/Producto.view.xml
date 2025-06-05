@@ -1,0 +1,93 @@
+<mvc:View
+    controllerName="product.controller.Producto"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    height="100%"
+>
+    <m:Page
+        title="Vista Productos"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <m:headerContent>
+            <m:Button
+                icon="sap-icon://download"
+                text="Exportar"
+                press="onDataExport"
+                type="Emphasized"
+            />
+        </m:headerContent>
+
+        <m:SearchField
+            id="searchFieldProduct"
+            placeholder="Buscar producto por nombre"
+            liveChange="onSearch"
+            width="50%"
+            class="sapUiSmallMargin"
+        />
+
+        <m:Table
+            id="productTable"
+            items="{productsModel>/products}"
+            growing="true"
+            growingThreshold="5"
+            busyIndicatorDelay="0"
+            class="sapUiResponsiveMargin"
+        >
+            <m:headerToolbar>
+                <m:Toolbar>
+                    <m:Title text="Lista de Productos" />
+                    <m:ToolbarSpacer />
+                </m:Toolbar>
+            </m:headerToolbar>
+
+            <m:columns>
+                <m:Column width="10%">
+                    <m:Text text="Imagen" />
+                </m:Column>
+                <m:Column width="25%">
+                    <m:Text text="Nombre" />
+                </m:Column>
+                <m:Column width="15%">
+                    <m:Text text="Precio ($)" />
+                </m:Column>
+                <m:Column width="15%">
+                    <m:Text text="Categoría" />
+                </m:Column>
+                <m:Column width="15%">
+                    <m:Text text="Rating" />
+                </m:Column>
+                <m:Column width="35%">
+                    <m:Text text="Descripción" />
+                </m:Column>
+            </m:columns>
+
+            <m:items>
+                <m:ColumnListItem>
+                    <m:cells>
+                        <m:Image
+                            src="{productsModel>image}"
+                            width="4rem"
+                        />
+                        <m:Text text="{productsModel>title}" />
+                        <m:ObjectNumber
+                            number="{productsModel>price}"
+                            unit="USD"
+                        />
+                        <m:Text text="{productsModel>category}" />
+                        <m:RatingIndicator
+                            value="{productsModel>rating/rate}"
+                            maxValue="5"
+                            enabled="false"
+                        />
+                        <m:Text text="{productsModel>description}" />
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+            <m:noData>
+                <m:Text text="No hay productos disponibles." />
+            </m:noData>
+        </m:Table>
+    </m:Page>
+</mvc:View>

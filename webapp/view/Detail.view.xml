@@ -1,0 +1,59 @@
+<mvc:View
+    controllerName="product.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout.form"
+    xmlns:vbm="sap.ui.vbm"
+    height="100%"
+>
+    <m:Page
+        title="Detalle del Usuario"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <m:content>
+            <layout:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanL="3"
+                labelSpanM="3"
+                emptySpanL="4"
+                emptySpanM="4"
+                columnsL="1"
+                columnsM="1"
+            >
+                <m:Label text="Nombre" />
+                <m:Text
+                    text="{detailModel>/name/firstname} {detailModel>/name/lastname}"
+                />
+
+                <m:Label text="Correo electrónico" />
+                <m:Text text="{detailModel>/email}" />
+
+                <m:Label text="Usuario" />
+                <m:Text text="{detailModel>/username}" />
+
+                <m:Label text="Teléfono" />
+                <m:Text text="{detailModel>/phone}" />
+
+                <m:Label text="Ciudad" />
+                <m:Text text="{detailModel>/address/city}" />
+
+                <m:Label text="Calle" />
+                <m:Text text="{detailModel>/address/street}" />
+
+                <m:Label text="Código Postal" />
+                <m:Text text="{detailModel>/address/zipcode}" />
+            </layout:SimpleForm>
+            <m:Label
+                text="Ubicación en el mapa"
+                class="sapUiSmallMarginTop"
+            />
+            <core:HTML
+                id="mapHtml"
+                sanitizeContent="false"
+            />
+        </m:content>
+    </m:Page>
+</mvc:View>

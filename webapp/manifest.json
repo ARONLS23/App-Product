@@ -27,6 +27,12 @@
           }
         }
       }
+    },
+    "dataSources": {
+      "tiles-srv": {
+        "uri": "localservice/tiles.config.json",
+        "type": "JSON"
+      }
     }
   },
   "sap.ui": {
@@ -46,7 +52,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.136.1",
       "libs": {
@@ -64,6 +70,10 @@
         "settings": {
           "bundleName": "product.i18n.i18n"
         }
+      },
+      "mTiles": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "tiles-srv"
       }
     },
     "resources": {
@@ -92,12 +102,67 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "viewProducto",
+          "pattern": "viewProducto",
+          "target": [
+            "TargetProducto"
+          ]
+        },
+        {
+          "name": "viewUsuario",
+          "pattern": "viewUsuario",
+          "target": [
+            "TargetUsuario"
+          ]
+        },
+        {
+          "name": "viewDetail",
+          "pattern": "viewDetail/{userId}",
+          "target": [
+            "TargetDetail"
+          ]
+        },
+        {
+          "name": "viewCompra",
+          "pattern": "viewCompra",
+          "target": [
+            "TargetCompra"
+          ]
+        },
+        {
+          "name": "viewCompraDetail",
+          "pattern": "viewCompraDetail/{cartId}",
+          "target": [
+            "TargetCompraDetail"
+          ]
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main"
+        },
+        "TargetProducto": {
+          "id": "Producto",
+          "name": "Producto"
+        },
+        "TargetUsuario": {
+          "id": "Usuario",
+          "name": "Usuario"
+        },
+        "TargetDetail": {
+          "id": "Detail",
+          "name": "Detail"
+        },
+        "TargetCompra": {
+          "id": "Compra",
+          "name": "Compra"
+        },
+        "TargetCompraDetail": {
+          "id": "CompraDetail",
+          "name": "CompraDetail"
         }
       }
     },

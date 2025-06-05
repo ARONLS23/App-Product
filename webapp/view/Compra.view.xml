@@ -1,0 +1,84 @@
+<mvc:View
+    controllerName="product.controller.Compra"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    height="100%"
+>
+    <m:Page
+        title="Lista de Compras"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <m:headerContent>
+            <m:Button
+                icon="sap-icon://download"
+                text="Exportar"
+                press="onDataExport"
+                type="Emphasized"
+            />
+        </m:headerContent>
+
+        <m:SearchField
+            id="searchFieldCompra"
+            placeholder="Buscar compras por usuario"
+            liveChange="onSearch"
+            width="50%"
+            class="sapUiSmallMargin"
+        />
+        <m:content>
+            <m:Table
+                id="cartTable"
+                items="{cartModel>/}"
+                growing="true"
+                growingThreshold="5"
+                class="sapUiResponsiveMargin"
+            >
+                <m:headerToolbar>
+                    <m:Toolbar>
+                        <m:Title text="Compras Registradas" />
+                        <m:ToolbarSpacer />
+                    </m:Toolbar>
+                </m:headerToolbar>
+
+                <m:columns>
+                    <m:Column>
+                        <m:Text text="ID Compra" />
+                    </m:Column>
+                    <m:Column>
+                        <m:Text text="Fecha" />
+                    </m:Column>
+                    <m:Column>
+                        <m:Text text="Usuario" />
+                    </m:Column>
+                    <m:Column>
+                        <m:Text text="Cantidad Total" />
+                    </m:Column>
+                    <m:Column>
+                        <m:Text text="Detalles" />
+                    </m:Column>
+                </m:columns>
+
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="{cartModel>id}" />
+                            <m:Text text="{cartModel>date}" />
+                            <m:Text text="{cartModel>userName}" />
+                            <m:Text text="{cartModel>totalQuantity}" />
+                            <m:Button
+                                icon="sap-icon://navigation-right-arrow"
+                                tooltip="Ver Detalles"
+                                press="onPressDetail"
+                                type="Transparent"
+                            />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+
+                <m:noData>
+                    <m:Text text="No hay compras registradas." />
+                </m:noData>
+            </m:Table>
+        </m:content>
+    </m:Page>
+</mvc:View>

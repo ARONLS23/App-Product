@@ -1,0 +1,61 @@
+<mvc:View
+    controllerName="product.controller.CompraDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    height="100%"
+>
+    <m:Page
+        title="Detalle de Compra"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <m:content>
+            <m:VBox class="sapUiSmallMargin">
+                <m:Label
+                    text="Usuario:"
+                    design="Bold"
+                />
+                <m:Text text="{cartDetailModel>/user/fullName}" />
+
+                <m:Label
+                    text="Fecha:"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <m:Text text="{cartDetailModel>/cart/date}" />
+            </m:VBox>
+
+            <m:Table
+                id="productsTable"
+                items="{cartDetailModel>/cart/products}"
+                class="sapUiResponsiveMargin sapUiSmallMarginTop"
+                growing="true"
+                growingThreshold="5"
+            >
+                <m:headerToolbar>
+                    <m:Toolbar>
+                        <m:Title text="Productos en la compra" />
+                    </m:Toolbar>
+                </m:headerToolbar>
+
+                <m:columns>
+                    <m:Column>
+                        <m:Text text="Producto" />
+                    </m:Column>
+                    <m:Column>
+                        <m:Text text="Cantidad" />
+                    </m:Column>
+                </m:columns>
+
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="{cartDetailModel>name}" />
+                            <m:Text text="{cartDetailModel>quantity}" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </m:content>
+    </m:Page>
+</mvc:View>

@@ -1,0 +1,22 @@
+{
+    "TileCollection": [
+        {
+            "Title": "Productos",
+            "Description": "Mantenimiento de Productos",
+            "Icon": "sap-icon://product",
+            "View": "viewProducto"
+        },
+        {
+            "Title": "Usuarios",
+            "Description": "Mantenimiento de Usuarios",
+            "Icon": "sap-icon://account",
+            "View": "viewUsuario"
+        },
+        {
+            "Title": "Compras",
+            "Description": "Mantenimiento de Compras",
+            "Icon": "sap-icon://sales-order",
+            "View": "viewCompra"
+        }
+    ]
+}

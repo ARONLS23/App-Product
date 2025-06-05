@@ -1,6 +1,67 @@
-<mvc:View controllerName="product.controller.Main"
+<mvc:View
+    controllerName="product.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <ScrollContainer
+                width="100%"
+                height="100%"
+                vertical="true"
+            >
+                <Panel
+                    headerText="Tipos de Vista"
+                    class="sapUiMediumMargin"
+                    width="auto"
+                >
+                    <f:GridContainer
+                        class="sapUiSmallMargin"
+                        items="{mTiles>/TileCollection}"
+                    >
+                        <f:layout>
+                            <f:GridContainerSettings
+                                rowSize="84px"
+                                columnSize="84px"
+                                gap="8px"
+                            />
+                        </f:layout>
+                        <f:layoutS>
+                            <f:GridContainerSettings
+                                rowSize="70px"
+                                columnSize="70px"
+                                gap="8px"
+                            />
+                        </f:layoutS>
+                        <GenericTile
+                            header="{mTiles>Title}"
+                            press="onPressTile"
+                            headerImage="{mTiles>Icon}"
+                        >
+                            <layoutData>
+                                <f:GridContainerItemLayoutData
+                                    rows="2"
+                                    columns="2"
+                                />
+                            </layoutData>
+                            <TileContent>
+                                <Label
+                                    text="{mTiles>Description}"
+                                    wrapping="true"
+                                />
+                            </TileContent>
+                        </GenericTile>
+                    </f:GridContainer>
+                </Panel>
+            </ScrollContainer>
+        </content>
+        <OverflowToolbar>
+            <Text text="By Aron Lloclla - ARROWS TECH" />
+        </OverflowToolbar>
     </Page>
 </mvc:View>
